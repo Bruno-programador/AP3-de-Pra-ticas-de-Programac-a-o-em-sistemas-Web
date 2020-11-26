@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AP3 Quiz</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background-color: rgb(30, 30, 30);
+		}
+
+		#inicio{
+			text-align: center;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-top: 20%;
+			background-color: rgb(90, 0, 0);
+			color: rgb(200, 200, 200);
+			padding: 10px;
+		}
+
+		#inicio button{
+			margin-left: 0px;
+			width: 100px;
+			height: 50px;
+			border-radius: 20px;
+		}
+
+		.perguta{
+			display: none;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-top: 15%;
+			background-image: url("virus.jpg"), url("https://cdn.pixabay.com/photo/2016/11/09/16/24/virus-1812092_960_720.jpg");
+			background-size: cover;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		div.perguta h3{
+			margin-top: 0px;
+			text-align: center;
+			font-size: 30px;
+		}
+
+		div.perguta h6{
+			margin: 10px;
+			font-size: 20px;
+		}
+
+		div.perguta p{
+			border:1px solid;
+			padding: 10px;
+			border-radius: 10px;
+			background-color: rgb(255, 255, 255);
+		}
+
+		div.perguta button{
+			margin-left: 45%;
+		}
+
+		#resultado{
+			display: none;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-top: 15%;
+			background-color: rgb(143, 216, 210);
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		#resultado #nota{
+			font-size: 40px;
+		}
+
+		#resultado #comentario{
+			font-size: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="inicio">
+		<h1>Bem vindo ao quiz sobre covid-19</h1>
+		<h2>Será 10 perguntas sobre a pandemia causada pelo vírus </h2>
+		<button onclick="iniciar()"> Começar</button>
+	</div>
+
+	<script type="text/javascript">
+		var acertos = 0
+		function iniciar(){
+			document.querySelector("#inicio").style.display = "none"
+			document.querySelector("#primeira").style.display = "block"
+			for (var i = 0; i < document.querySelectorAll("#primeira input").length; i++) {
+					document.querySelectorAll("#primeira input")[i].checked = false
+				}
+		}
+	</script>
+
+	<div class="perguta" id="primeira">
+		<h3>1º Pergunta</h3>
+		<h6>Qual é o sintoma comum da covid-19?</h6>
+		<label><p class="errada"><input type="radio" name="resp1"onclick="confirmar('errada', '#primeira')">Cansaço</p></label>
+		<label><p class="errada"><input type="radio" name="resp1" onclick="confirmar('errada', '#primeira')">Tosse continua</p></label>
+		<label><p class="errada"><input type="radio" name="resp1" onclick="confirmar('errada', '#primeira')">Febre</p></label>
+		<label><p class="certa"><input type="radio" name="resp1" onclick="confirmar('certa', '#primeira')">Todas as opções</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#primeira','#segunda')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="segunda">
+		<h3>2º Pergunta</h3>
+		<h6>Como se deve usar a máscara?</h6>
+		<label><p class="errada"><input type="radio" name="resp2"onclick="confirmar('errada', '#segunda')">Não há necessidade de utilizar</p></label>
+		<label><p class="certa"><input type="radio" name="resp2" onclick="confirmar('certa', '#segunda')">Cobrindo o nariz e a boca</p></label>
+		<label><p class="errada"><input type="radio" name="resp2" onclick="confirmar('errada', '#segunda')">Apenas cobrindo a boca</p></label>
+		<label><p class="errada"><input type="radio" name="resp2" onclick="confirmar('errada', '#segunda')">Tanto faz como colocar a máscara</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#segunda','#terceira')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="terceira">
+		<h3>3º Pergunta</h3>
+		<h6>Onde foi identificado o primeiro caso de covid-19?</h6>
+		<label><p class="errada"><input type="radio" name="resp3"onclick="confirmar('errada', '#terceira')">Beijing</p></label>
+		<label><p class="errada"><input type="radio" name="resp3" onclick="confirmar('errada', '#terceira')">Shangai</p></label>
+		<label><p class="certa"><input type="radio" name="resp3" onclick="confirmar('certa', '#terceira')">Wuhan</p></label>
+		<label><p class="errada"><input type="radio" name="resp3" onclick="confirmar('errada', '#terceira')">Pequim</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#terceira','#quarta')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="quarta">
+		<h3>4º Pergunta</h3>
+		<h6>Qual o tempo de incubação do covid-19?</h6>
+		<label><p class="certa"><input type="radio" name="resp4"onclick="confirmar('certa', '#quarta')">1 - 14 dias</p></label>
+		<label><p class="errada"><input type="radio" name="resp4" onclick="confirmar('errada', '#quarta')">5 - 25 dias</p></label>
+		<label><p class="errada"><input type="radio" name="resp4" onclick="confirmar('errada', '#quarta')">40 - 80 dias</p></label>
+		<label><p class="errada"><input type="radio" name="resp4" onclick="confirmar('errada', '#quarta')">50 - 100 dias</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#quarta','#quinta')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="quinta">
+		<h3>5º Pergunta</h3>
+		<h6>Qual o orgão que o coronavírus normalmente ataca primeiro?</h6>
+		<label><p class="errada"><input type="radio" name="resp5"onclick="confirmar('errada', '#quinta')">Rins</p></label>
+		<label><p class="errada"><input type="radio" name="resp5" onclick="confirmar('errada', '#quinta')">Coração</p></label>
+		<label><p class="errada"><input type="radio" name="resp5" onclick="confirmar('errada', '#quinta')">Figado</p></label>
+		<label><p class="certa"><input type="radio" name="resp5" onclick="confirmar('certa', '#quinta')">Pulmões</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#quinta','#sexta')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="sexta">
+		<h3>6º Pergunta</h3>
+		<h6>Que hábito é eficaz para combater a covid-19?</h6>
+		<label><p class="certa"><input type="radio" name="resp6"onclick="confirmar('certa', '#sexta')">Lavar as mãos com água e sabão</p></label>
+		<label><p class="errada"><input type="radio" name="resp6" onclick="confirmar('errada', '#sexta')">Comprimentar com um abraço</p></label>
+		<label><p class="errada"><input type="radio" name="resp6" onclick="confirmar('errada', '#sexta')">Usar vermifugo</p></label>
+		<label><p class="errada"><input type="radio" name="resp6" onclick="confirmar('errada', '#sexta')">Coçar os olhos</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#sexta','#setima')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="setima">
+		<h3>7º Pergunta</h3>
+		<h6>Que nome se dá ao isolamento devido à uma doença contagiosa? </h6>
+		<label><p class="errada"><input type="radio" name="resp7"onclick="confirmar('errada', '#setima')">Retiro</p></label>
+		<label><p class="errada"><input type="radio" name="resp7" onclick="confirmar('errada', '#setima')">Férias</p></label>
+		<label><p class="errada"><input type="radio" name="resp7" onclick="confirmar('errada', '#setima')">Isolamento social</p></label>
+		<label><p class="certa"><input type="radio" name="resp7" onclick="confirmar('certa', '#setima')">Quarentena</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#setima','#oitava')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="oitava">
+		<h3>8º Pergunta</h3>
+		<h6>Qual desses itens é recomendavel ultilizar para combater a covid-19?</h6>
+		<label><p class="certa"><input type="radio" name="resp8"onclick="confirmar('certa', '#oitava')">Alcool em gel</p></label>
+		<label><p class="errada"><input type="radio" name="resp8" onclick="confirmar('errada', '#oitava')">Luvas</p></label>
+		<label><p class="errada"><input type="radio" name="resp8" onclick="confirmar('errada', '#oitava')">Óculos</p></label>
+		<label><p class="errada"><input type="radio" name="resp8" onclick="confirmar('errada', '#oitava')">Alvejante</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#oitava','#nona')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="nona">
+		<h3>9º Pergunta</h3>
+		<h6>Qual das opções está correta em relação ao coronavírus</h6>
+		<label><p class="errada"><input type="radio" name="resp9"onclick="confirmar('errada', '#nona')">Não se transmite covid-19 se não apresentar sintomas</p></label>
+		<label><p class="certa"><input type="radio" name="resp9" onclick="confirmar('certa', '#nona')">Mesmo assintomático, pode trasmitir a doença</p></label>
+		<label><p class="errada"><input type="radio" name="resp9" onclick="confirmar('errada', '#nona')">Pode não transmitir covid mesmo tendo sintomas</p></label>
+		<label><p class="errada"><input type="radio" name="resp9" onclick="confirmar('errada', '#nona')">Só pessoas em grupo de risco que transmitem coronavírus</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#nona','#decima')"> Continuar</button>
+	</div>
+
+	<div class="perguta" id="decima">
+		<h3>10º Pergunta</h3>
+		<h6>Em relação aos produtos comprados</h6>
+		<label><p class="errada"><input type="radio" name="resp10"onclick="confirmar('errada', '#decima')">Não precisa higienizar</p></label>
+		<label><p class="errada"><input type="radio" name="resp10" onclick="confirmar('errada', '#decima')">Apenas lavar com água</p></label>
+		<label><p class="certa"><input type="radio" name="resp10" onclick="confirmar('certa', '#decima')">Se deve higieniza-los</p></label>
+		<label><p class="errada"><input type="radio" name="resp10" onclick="confirmar('errada', '#decima')">guardar assim que chegar em casa</p></label>
+		<h6 class="feedback"><br/></h6>
+		<button onclick="continuar('#decima','#resultado')"> Continuar</button>
+	</div>
+
+	<script type="text/javascript">
+		function continuar(antes, depois){
+			for (var i = 0; i < document.querySelectorAll(depois +" input").length; i++) {
+					document.querySelectorAll(depois +" input")[i].checked = false
+				}	
+			var a = document.querySelectorAll(antes +" input")[0]
+			a = a.getAttribute("disabled")
+			if (a == "") {
+				document.querySelector(antes).style.display = "none"
+				document.querySelector(depois).style.display = "block"
+			}
+			else{
+				var resul = document.querySelector(antes +" .feedback")
+				resul.innerHTML = "Selecione uma opção"
+			}	
+			if (depois == "#resultado"){
+				aparecernota()
+			}
+		}
+
+		function confirmar(selecao, caixa){
+			var resul = document.querySelector(caixa +" .feedback")
+			if (selecao == "certa"){
+				resul.innerHTML = "Acertou"
+				acertos++
+			}
+			else {
+				resul.innerHTML = "Errou"
+			}
+			var slc = document.querySelectorAll(caixa +" p")
+			for (var i = 0; i < slc.length; i++) {
+				if (slc[i].className == "certa") {
+					slc[i].style.backgroundColor = "green"
+				}
+				else{
+					slc[i].style.backgroundColor = "red"
+				}
+			}
+			var desabilitar = document.querySelectorAll(caixa +" input")
+			for (var i = 0; i < desabilitar.length; i++) {
+				desabilitar[i].disabled = true
+			}
+		}
+	</script>
+
+	<div id="resultado">
+		<p id="nota"></p>
+		<p id="comentario"></p>
+	</div>
+
+	<script type="text/javascript">
+		function aparecernota(){
+			document.querySelector("#nota").innerHTML = `Acertou ${acertos} / 10`
+			if (acertos == 10) {
+				document.querySelector("#comentario").innerHTML = "Excelente, acertou todas as perguntas. Você é um especialista"
+			}
+
+			else if (acertos >= 8) {
+				document.querySelector("#comentario").innerHTML = " Muito bom. Você sabe muito sobre a covid-19"
+			}
+
+			else if (acertos >= 5) {
+				document.querySelector("#comentario").innerHTML = "Bom. Você deve saber o suficiente para combater esse vírus"
+			}
+
+			else if (acertos >= 0) {
+				document.querySelector("#comentario").innerHTML = "Você deve procurar mais informações de prevenção sobre a covid-19"
+			}
+		}
+	</script>
+</body>
+</html>
