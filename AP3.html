@@ -32,6 +32,7 @@
 			margin-top: 15%;
 			background-image: url("virus.jpg"), url("https://cdn.pixabay.com/photo/2016/11/09/16/24/virus-1812092_960_720.jpg");
 			background-size: cover;
+			background-color: rgb(100, 149, 104);
 			border-radius: 10px;
 			padding: 10px;
 		}
@@ -62,10 +63,16 @@
 			display: none;
 			margin-left: 25%;
 			margin-right: 25%;
-			margin-top: 15%;
+			margin-top: 5%;
 			background-color: rgb(143, 216, 210);
 			border-radius: 10px;
 			padding: 10px;
+		}
+
+		#resultado #imgresultado{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		#resultado #nota{
@@ -252,6 +259,7 @@
 	</script>
 
 	<div id="resultado">
+		<img id=imgresultado src="">
 		<p id="nota"></p>
 		<p id="comentario"></p>
 	</div>
@@ -261,18 +269,38 @@
 			document.querySelector("#nota").innerHTML = `Acertou ${acertos} / 10`
 			if (acertos == 10) {
 				document.querySelector("#comentario").innerHTML = "Excelente, acertou todas as perguntas. Você é um especialista"
+				var img = document.querySelector("#imgresultado")
+				img.src = "nota_10.png"
+				img.src = "https://cdn.pixabay.com/photo/2016/04/02/04/57/comic-1302161_960_720.png"
+				img.alt = "Um rosto sorrindo"
+				img.style.width = "500px"
 			}
 
 			else if (acertos >= 8) {
 				document.querySelector("#comentario").innerHTML = " Muito bom. Você sabe muito sobre a covid-19"
+				var img = document.querySelector("#imgresultado")
+				img.src = "nota_8.png"
+				img.src = "https://cdn.pixabay.com/photo/2017/09/16/21/31/emoji-2756891_960_720.png"
+				img.alt = "Um rosto sorrindo"
+				img.style.width = "500px"
 			}
 
 			else if (acertos >= 5) {
 				document.querySelector("#comentario").innerHTML = "Bom. Você deve saber o suficiente para combater esse vírus"
+				var img = document.querySelector("#imgresultado")
+				img.src = "nota_5.png"
+				img.src = "https://cdn.pixabay.com/photo/2017/01/31/19/39/comic-2026759_960_720.png"
+				img.alt = "Um rosto neutro"
+				img.style.width = "500px"
 			}
 
 			else if (acertos >= 0) {
 				document.querySelector("#comentario").innerHTML = "Você deve procurar mais informações de prevenção sobre a covid-19"
+				var img = document.querySelector("#imgresultado")
+				img.src = "nota_0.png"
+				img.src = "https://cdn.pixabay.com/photo/2017/01/31/19/22/comic-characters-2026645_960_720.png"
+				img.alt = "Um rosto triste"
+				img.style.width = "500px"
 			}
 		}
 	</script>
